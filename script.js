@@ -475,11 +475,13 @@ document.addEventListener('DOMContentLoaded', () => {
     cursor.className = 'custom-cursor';
     document.body.appendChild(cursor);
 
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
+    // document.addEventListener('mousemove', (e) => {
+    //     cursor.style.left = e.clientX + 'px';
+    //     cursor.style.top = e.clientY + 'px';
+    // });
 
+
+    
     // Add click ripple effect to buttons
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
