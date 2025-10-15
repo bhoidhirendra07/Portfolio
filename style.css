@@ -122,10 +122,18 @@ html {
     height: 4rem;
 }
 
-.nav-brand {
+/* .nav-brand {
     font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--text-primary);
+    size: 10px;
+} */
+
+.nav-brand img {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+    
 }
 
 .nav-menu {
@@ -611,7 +619,7 @@ section {
 
 @media (min-width: 1024px) {
     .skills-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
