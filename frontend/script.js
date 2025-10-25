@@ -1,3 +1,8 @@
+(function(){
+    emailjs.init("TUAJwR6788svxuPBc"); // <-- Replace EmailJS Public Key
+})();
+
+
 // Theme Management
 class ThemeManager {
     constructor() {
@@ -170,6 +175,7 @@ class ScrollAnimations {
     }
 }
 
+
 // Form Management
 class FormManager {
     constructor() {
@@ -272,7 +278,7 @@ class FormManager {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="20,6 9,17 4,12"></polyline>
                 </svg>
-                <span>Message sent successfully! I'll get back to you soon.</span>
+                <span>Message sent successfully!</span>
             </div>
         `;
 
@@ -284,6 +290,43 @@ class FormManager {
         }, 5000);
     }
 }
+
+// Handle form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    emailjs.sendForm('service_2j69aw2', 'template_thn9pxd', this)
+        .then(() => {
+            showSuccess(); // Call custom success message
+            this.reset(); // Reset the form fields
+        })
+        // .catch((error) => {
+        //     console.error('Email sending failed:', error);
+        //     alert('Failed to send message. Please try again.');
+        // });
+});
+
+// // Custom success message function
+// function showSuccess() {
+//     const form = document.getElementById('contact-form');
+//     const successMessage = document.createElement('div');
+//     successMessage.className = 'success-message';
+//     successMessage.innerHTML = `
+//         <div class="success-content">
+//             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+//                 <polyline points="20,6 9,17 4,12"></polyline>
+//             </svg>
+//             <span>Message sent successfully! I'll get back to you soon.</span>
+//         </div>
+//     `;
+    
+//     form.appendChild(successMessage);
+
+//     // Remove message after 5 seconds
+//     setTimeout(() => {
+//         successMessage.remove();
+//     }, 5000);
+// }
 
 // Utility Functions
 function scrollToSection(sectionId) {
