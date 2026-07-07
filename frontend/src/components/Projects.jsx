@@ -72,7 +72,7 @@ export default function Projects() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Card Image */}
-              <div className={`h-44 bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+              <div className={`h-44 bg-linear-to-br ${gradient} flex items-center justify-center`}>
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5">
                   <rect x="2" y="3" width="20" height="14" rx="2" />
                   <line x1="8" y1="21" x2="16" y2="21" />

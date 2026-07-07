@@ -144,7 +144,7 @@ export default function Contact() {
             <div className="space-y-4">
               {CONTACT_INFO.map(({ icon, label, value, href }) => (
                 <div key={label} className="flex items-center gap-4">
-                  <div className={`w-12 h-12 flex items-center justify-center rounded-lg flex-shrink-0 text-blue-500
+                  <div className={`w-12 h-12 flex items-center justify-center rounded-lg shrink-0 text-blue-500
                     ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}>
                     {icon}
                   </div>

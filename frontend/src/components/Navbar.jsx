@@ -65,7 +65,7 @@ export default function Navbar() {
             >
               {label}
               {activeSection === id && (
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-blue-500 to-violet-500" />
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-linear-to-r from-blue-500 to-violet-500" />
               )}
             </button>
           ))}

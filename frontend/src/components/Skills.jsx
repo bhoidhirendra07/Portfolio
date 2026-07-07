@@ -92,7 +92,7 @@ export default function Skills() {
                     key={item}
                     className={`text-sm flex items-center gap-2 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                     {item}
                   </li>
                 ))}

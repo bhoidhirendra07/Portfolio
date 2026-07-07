@@ -110,7 +110,7 @@ export default function Hero() {
           <span className="gradient-text">Dhirendra Bhoi</span>
         </h1>
 
-        <p className="text-xl md:text-2xl mb-8 text-white/90 min-h-[2rem]">
+        <p className="text-xl md:text-2xl mb-8 text-white/90 min-h-8">
           {typedText}
           <span className="inline-block w-0.5 h-6 bg-white/80 ml-1 align-middle animate-pulse" />
         </p>
