@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
-    // Basic validation
     if (!name || !email || !message) {
       return res.status(400).json({
         success: false,
@@ -16,18 +15,16 @@ router.post('/', async (req, res) => {
       });
     }
 
-    // Save to database
     const newMessage = await Message.create({ name, email, message });
 
     res.status(201).json({
       success: true,
-      message: "Message received! I'll get back to you soon.",
+      message: "Message received!",
       data: newMessage,
     });
   } catch (error) {
     console.error('Contact route error:', error);
 
-    // Handle Mongoose validation errors
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map((e) => e.message);
       return res.status(400).json({ success: false, message: errors.join(', ') });

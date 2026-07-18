@@ -1,70 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+/*
+  PALETTE (inspired by jatinmaurya.me)
+  ─ bg:      #EBEBEB  (warm light grey)
+  ─ surface: #F5F5F5  (slightly lighter cards)
+  ─ white:   #FFFFFF  (pure white cards / inputs)
+  ─ dark:    #1A1A2E  (deep navy, replaces harsh black)
+  ─ body:    #4A4A5A  (mid slate for paragraphs)
+  ─ violet:  #7C22D4  (primary accent - from jatinmaurya hover)
+  ─ blue:    #2563EB  (CTA buttons - from jatinmaurya Download CV)
+  ─ border:  #D9D9D9
+*/
+
 @theme {
-  --font-family-sans: 'Inter', system-ui, sans-serif;
-  --color-primary: #3b82f6;
-  --color-secondary: #8b5cf6;
-  --color-accent: #10b981;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Base */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #EBEBEB;
+  color: #1A1A2E;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 3px;
-}
+html, body { scroll-behavior: smooth; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; -ms-overflow-style: none; }
+*::-webkit-scrollbar { display: none; }
 
-/* Gradient text utility */
+/* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  background: linear-gradient(135deg, #7C22D4, #2563EB);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Floating shape animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-20px) scale(1.05); }
+/* ── Section divider ── */
+.section-divider {
+  width: 40px;
+  height: 3px;
+  background: #7C22D4;
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
-/* Bounce animation for scroll indicator */
+/* ── Keyframes ── */
 @keyframes bounce-y {
   0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-10px); }
-  60% { transform: translateX(-50%) translateY(-5px); }
+  40%                      { transform: translateX(-50%) translateY(-8px); }
+  60%                      { transform: translateX(-50%) translateY(-4px); }
 }
 
-/* Fade in up animation */
+@keyframes typewriterCursor {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(2rem); }
+  from { opacity: 0; transform: translateY(1.5rem); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Ripple animation */
-@keyframes ripple-animation {
-  to { transform: scale(4); opacity: 0; }
-}
-
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
-.animate-bounce-y { animation: bounce-y 2s infinite; }
-.animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
-
-/* Intersection observer fade-in */
+/* ── Scroll reveal ── */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(2rem);
+  transform: translateY(1.5rem);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .fade-in-section.visible {
@@ -72,12 +76,122 @@ html {
   transform: translateY(0);
 }
 
-/* Ripple effect */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(0);
-  animation: ripple-animation 0.6s linear;
-  pointer-events: none;
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-1.5rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+.fade-in-left.visible { opacity: 1; transform: translateX(0); }
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(1.5rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-right.visible { opacity: 1; transform: translateX(0); }
+
+.scale-in-section {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.scale-in-section.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Animations ── */
+.animate-bounce-y { animation: bounce-y 2s infinite; }
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+.typing-cursor { animation: typewriterCursor 0.9s step-end infinite; }
+
+/* ── Card hover  — NO 3D, NO perspective, NO blur ── */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* ── Button primary ── */
+.btn-primary {
+  background: #2563EB;
+  color: #fff;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  background: #1D4ED8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+/* ── Button outline ── */
+.btn-outline {
+  border: 1.5px solid #D9D9D9;
+  color: #1A1A2E;
+  background: transparent;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+.btn-outline:hover {
+  border-color: #7C22D4;
+  color: #7C22D4;
+  background: #F5F0FF;
+  transform: translateY(-1px);
+}
+
+/* ── Social icon button ── */
+.social-btn {
+  border: 1.5px solid #D9D9D9;
+  background: #F5F5F5;
+  color: #6B6B80;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.social-btn:hover {
+  border-color: #7C22D4;
+  color: #7C22D4;
+  background: #F5F0FF;
+  transform: translateY(-2px);
+}
+
+/* ── Skill chip hover ── */
+.skill-chip {
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.skill-chip:hover {
+  border-color: #7C22D4;
+  background: #F5F0FF;
+  transform: translateY(-2px);
+}
+
+/* ── Tag pill ── */
+.tag-pill {
+  background: #E8E0FF;
+  color: #6B21A8;
+  border: 1px solid #DDD6FE;
+}
+
+/* ── Stagger delays ── */
+.stagger > *:nth-child(1) { transition-delay: 0ms; }
+.stagger > *:nth-child(2) { transition-delay: 60ms; }
+.stagger > *:nth-child(3) { transition-delay: 120ms; }
+.stagger > *:nth-child(4) { transition-delay: 180ms; }
+.stagger > *:nth-child(5) { transition-delay: 240ms; }
+.stagger > *:nth-child(6) { transition-delay: 300ms; }
+.stagger > *:nth-child(7) { transition-delay: 360ms; }
+
+/* ── Underline link ── */
+.link-underline {
+  position: relative;
+  color: #6B6B80;
+  transition: color 0.2s ease;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #7C22D4;
+  transition: width 0.25s ease;
+}
+.link-underline:hover { color: #7C22D4; }
+.link-underline:hover::after { width: 100%; }

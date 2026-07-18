@@ -1,134 +1,177 @@
 import { useEffect, useRef } from 'react';
-import { useTheme } from '../context/ThemeContext';
 
-const PROJECTS = [
-  {
-    title: 'KidStyle E-Commerce',
-    description: 'Full-stack premium children\'s fashion platform with MongoDB, JWT auth, cart & wishlist.',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-    gradient: 'from-blue-500 to-violet-500',
-    github: 'https://github.com/bhoidhirendra07',
+const JS_PROJECTS = [
+   {
+    title: 'VLC Clone',
+    overview: 'A browser-based video player inspired by VLC. Supports local file playback, custom play/pause controls, a draggable seek bar, volume control, and fullscreen mode — all built with vanilla JS.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/VLC-clone',
     live: '#',
   },
   {
-    title: 'Portfolio Website',
-    description: 'Responsive personal portfolio built with MERN stack, featuring smooth animations and dark mode.',
-    tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js'],
-    gradient: 'from-violet-500 to-pink-500',
-    github: 'https://github.com/bhoidhirendra07',
+    title: 'CalcMaster',
+    overview: 'A fully functional browser calculator supporting all basic arithmetic operations, keyboard shortcuts, and live expression evaluation. Designed with a dark UI and smooth key-press animations.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/CalcMaster',
     live: '#',
   },
   {
-    title: 'Blog Application',
-    description: 'Full-stack blog platform with rich text editor, user auth, and comment system.',
-    tech: ['React', 'Appwrite', 'Redux', 'TailwindCSS'],
-    gradient: 'from-emerald-500 to-teal-500',
-    github: 'https://github.com/bhoidhirendra07',
+    title: 'Typing Speed Checker',
+    overview: 'Real-time typing speed test that measures Words Per Minute (WPM) and accuracy. Highlights each character as you type — green for correct, red for errors — with a countdown timer and result summary.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/Typing-Speed-Checker',
+    live: '#',
+  },
+ 
+  {
+    title: 'Lottery Game',
+    overview: 'An interactive lottery game where players pick numbers and see an animated random draw. Tracks winning rounds, shows instant win/loss feedback, and keeps a session score on the side.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/Lottery-Game',
     live: '#',
   },
 ];
 
+const OTHER_PROJECTS = [
+  {
+    title: 'KidStyle E-Commerce',
+    overview: "A full-stack premium children's fashion store built with the MERN stack. Features JWT-based authentication, product catalog with filters, add-to-cart and wishlist functionality, order tracking, and an admin panel for product management.",
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/Kids-online-store',
+    live: '#',
+  },
+  {
+    title: 'Quality Enhancer',
+    overview: 'A web tool that allows users to upload an image and receive an upscaled, enhanced version. Supports multiple enhancement modes (sharpen, denoise, upscale) with a before/after comparison slider.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/quality_enhancer',
+    live: '#',
+  },
+  {
+    title: 'Portfolio Website',
+    overview: 'This portfolio — built with React, Vite, and Tailwind CSS on the frontend and Node.js + Express on the backend. Features scroll-driven animations, a contact form integrated with EmailJS, and a responsive design across all screen sizes.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/Portfolio',
+    live: '#',
+  },
+  {
+    title: 'Cloudy Weather App',
+    overview: 'A premium weather dashboard powered by the OpenWeatherMap API. Shows current conditions, a 5-day forecast, hourly temperature chart, humidity/wind/UV metrics, and an animated arc-based sunrise/sunset visualisation.',
+    image: null,
+    github: 'https://github.com/bhoidhirendra07/Weather-App',
+    live: '#',
+  },
+];
+
+/* Placeholder colour per initial letter */
+const PLACEHOLDER_COLOURS = {
+  C: '#7C22D4', T: '#2563EB', V: '#059669', L: '#D97706',
+  K: '#7C22D4', Q: '#2563EB', P: '#7C22D4',
+};
+
+function placeholder(title) {
+  return PLACEHOLDER_COLOURS[title.charAt(0)] ?? '#7C22D4';
+}
+
+/* ── Unified project card (same look for JS & Full-Stack) ── */
+const GH_ICON = (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+  </svg>
+);
+const EXT_ICON = (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15,3 21,3 21,9" /><line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+);
+
+function ProjectCard({ title, overview, image, github, live, index }) {
+  const color = placeholder(title);
+  return (
+    <div
+      className="bg-white rounded-2xl border border-[#D9D9D9] overflow-hidden fade-in-section card-hover flex flex-col"
+      style={{ transitionDelay: `${index * 60}ms` }}
+    >
+      {/* Image / placeholder */}
+      <div className="relative h-36 overflow-hidden bg-[#F3F3F3] shrink-0">
+        {image
+          ? <img src={image} alt={title} className="w-full h-full object-cover" />
+          : (
+            <div className="w-full h-full flex items-center justify-center"
+              style={{ background: `linear-gradient(135deg, ${color}18, ${color}06)` }}>
+              <span className="text-5xl font-black select-none" style={{ color: `${color}28` }}>
+                {title.charAt(0)}
+              </span>
+            </div>
+          )
+        }
+        <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: color }} />
+      </div>
+
+      {/* Body */}
+      <div className="p-4 flex flex-col flex-1">
+        <h3 className="font-bold text-[#1A1A2E] text-sm mb-1.5 leading-snug">{title}</h3>
+        <p className="text-xs text-[#6B6B80] leading-relaxed flex-1 mb-3">{overview}</p>
+        <div className="flex gap-4 pt-3 border-t border-[#F0F0F0]">
+          <a href={live} className="link-underline flex items-center gap-1 text-xs font-semibold">
+            {EXT_ICON} Live
+          </a>
+          <a href={github} target="_blank" rel="noopener noreferrer"
+            className="link-underline flex items-center gap-1 text-xs font-semibold">
+            {GH_ICON} Code
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
-  const { theme } = useTheme();
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
     );
-    const elements = sectionRef.current?.querySelectorAll('.fade-in-section');
-    elements?.forEach((el) => observer.observe(el));
+    sectionRef.current?.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className={`py-20 ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'}`}
-    >
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="projects" ref={sectionRef} className="py-24 bg-[#EBEBEB]">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 fade-in-section">
-          <h2 className={`text-4xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-            Featured Projects
-          </h2>
-          <div className="w-20 h-1 mx-auto rounded-full" style={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }} />
+        <div className="mb-14 fade-in-section">
+          <p className="text-xs font-semibold text-[#7C22D4] tracking-widest uppercase mb-2">My Work</p>
+          <h2 className="text-3xl font-black text-[#1A1A2E] mb-3">Featured Projects</h2>
+          <div className="w-10 h-0.5 bg-[#7C22D4] rounded-full" />
+          <p className="mt-4 text-[15px] text-[#6B6B80]">
+            A showcase across JavaScript fundamentals and full-stack development.
+          </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROJECTS.map(({ title, description, tech, gradient, github, live }, index) => (
-            <div
-              key={title}
-              className={`rounded-xl overflow-hidden shadow-md fade-in-section
-                transition-all duration-300 hover:-translate-y-2 hover:shadow-xl
-                ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Card Image */}
-              <div className={`h-44 bg-linear-to-br ${gradient} flex items-center justify-center`}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
-                </svg>
-              </div>
+        {/* JavaScript Projects */}
+        <div className="mb-14">
+          <h3 className="text-sm font-bold text-[#1A1A2E] mb-5 flex items-center gap-2 uppercase tracking-wider">
+            <span className="w-5 h-5 rounded bg-[#7C22D4] text-white text-[10px] font-black flex items-center justify-center">JS</span>
+            JavaScript Projects
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {JS_PROJECTS.map((p, i) => <ProjectCard key={p.title} {...p} index={i} />)}
+          </div>
+        </div>
 
-              {/* Card Content */}
-              <div className="p-5">
-                <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                  {title}
-                </h3>
-                <p className={`text-sm mb-4 leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {description}
-                </p>
-
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {tech.map((t) => (
-                    <span
-                      key={t}
-                      className={`text-xs px-2.5 py-1 rounded-full ${theme === 'dark' ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-600'}`}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4">
-                  <a
-                    href={live}
-                    className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-violet-500 transition-colors"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                      <polyline points="15,3 21,3 21,9" />
-                      <line x1="10" y1="14" x2="21" y2="3" />
-                    </svg>
-                    Live Demo
-                  </a>
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-blue-500 hover:text-violet-500 transition-colors"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                    Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Full Stack & Other Projects */}
+        <div>
+          <h3 className="text-sm font-bold text-[#1A1A2E] mb-5 flex items-center gap-2 uppercase tracking-wider">
+            <span className="w-5 h-5 rounded bg-[#2563EB] text-white text-[10px] font-black flex items-center justify-center">FS</span>
+            Full Stack &amp; Other Projects
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {OTHER_PROJECTS.map((p, i) => <ProjectCard key={p.title} {...p} index={i} />)}
+          </div>
         </div>
       </div>
     </section>

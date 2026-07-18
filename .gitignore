@@ -9,6 +9,8 @@ node_modules
 logs
 *.log
 npm-debug.log*
+*.jpeg
+*.png
 
 # Build outputs
 dist
