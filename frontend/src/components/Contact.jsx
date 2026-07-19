@@ -133,17 +133,17 @@ export default function Contact() {
           <form ref={formRef} onSubmit={handleSubmit} noValidate
             className="fade-in-right bg-[#F5F5F5] rounded-2xl p-7 space-y-4">
             <div>
-              <input id="from_name" type="text" name="from_name" value={form.from_name} onChange={handleChange}
+              <input id="from_name" type="text" name="from_name" value={form.from_name} onChange={handleChange} required autoComplete='off'
                 placeholder="Your Name" className={inputCls('from_name')} />
               {errors.from_name && <p className="text-red-500 text-xs mt-1">{errors.from_name}</p>}
             </div>
             <div>
-              <input id="from_email" type="email" name="from_email" value={form.from_email} onChange={handleChange}
+              <input id="from_email" type="email" name="from_email" value={form.from_email} onChange={handleChange} required autoComplete='off'
                 placeholder="Your Email" className={inputCls('from_email')} />
               {errors.from_email && <p className="text-red-500 text-xs mt-1">{errors.from_email}</p>}
             </div>
             <div>
-              <textarea id="message" name="message" rows={5} value={form.message} onChange={handleChange}
+              <textarea id="message" name="message" rows={5} value={form.message} onChange={handleChange} required autoComplete='off'
                 placeholder="Your Message" className={`${inputCls('message')} resize-none`} />
               {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
             </div>

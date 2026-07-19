@@ -4,21 +4,21 @@ const JS_PROJECTS = [
    {
     title: 'VLC Clone',
     overview: 'A browser-based video player inspired by VLC. Supports local file playback, custom play/pause controls, a draggable seek bar, volume control, and fullscreen mode — all built with vanilla JS.',
-    image: null,
+    image: "../public/VLC.png",
     github: 'https://github.com/bhoidhirendra07/VLC-clone',
     live: '#',
   },
   {
     title: 'CalcMaster',
     overview: 'A fully functional browser calculator supporting all basic arithmetic operations, keyboard shortcuts, and live expression evaluation. Designed with a dark UI and smooth key-press animations.',
-    image: null,
+    image: "../public/CalcMaster.png",
     github: 'https://github.com/bhoidhirendra07/CalcMaster',
     live: '#',
   },
   {
     title: 'Typing Speed Checker',
     overview: 'Real-time typing speed test that measures Words Per Minute (WPM) and accuracy. Highlights each character as you type — green for correct, red for errors — with a countdown timer and result summary.',
-    image: null,
+    image: "../public/Typing-speed.png",
     github: 'https://github.com/bhoidhirendra07/Typing-Speed-Checker',
     live: '#',
   },
@@ -26,7 +26,7 @@ const JS_PROJECTS = [
   {
     title: 'Lottery Game',
     overview: 'An interactive lottery game where players pick numbers and see an animated random draw. Tracks winning rounds, shows instant win/loss feedback, and keeps a session score on the side.',
-    image: null,
+    image: "../public/lottery.png",
     github: 'https://github.com/bhoidhirendra07/Lottery-Game',
     live: '#',
   },
@@ -36,28 +36,28 @@ const OTHER_PROJECTS = [
   {
     title: 'KidStyle E-Commerce',
     overview: "A full-stack premium children's fashion store built with the MERN stack. Features JWT-based authentication, product catalog with filters, add-to-cart and wishlist functionality, order tracking, and an admin panel for product management.",
-    image: null,
+    image: "../public/kidstyle.png",
     github: 'https://github.com/bhoidhirendra07/Kids-online-store',
     live: '#',
   },
   {
     title: 'Quality Enhancer',
     overview: 'A web tool that allows users to upload an image and receive an upscaled, enhanced version. Supports multiple enhancement modes (sharpen, denoise, upscale) with a before/after comparison slider.',
-    image: null,
+    image: "../public/QuickEnhancer.png",
     github: 'https://github.com/bhoidhirendra07/quality_enhancer',
     live: '#',
   },
   {
     title: 'Portfolio Website',
     overview: 'This portfolio — built with React, Vite, and Tailwind CSS on the frontend and Node.js + Express on the backend. Features scroll-driven animations, a contact form integrated with EmailJS, and a responsive design across all screen sizes.',
-    image: null,
+    image: "../public/portfolio.png",
     github: 'https://github.com/bhoidhirendra07/Portfolio',
     live: '#',
   },
   {
     title: 'Cloudy Weather App',
     overview: 'A premium weather dashboard powered by the OpenWeatherMap API. Shows current conditions, a 5-day forecast, hourly temperature chart, humidity/wind/UV metrics, and an animated arc-based sunrise/sunset visualisation.',
-    image: null,
+    image: "../public/cloudy.png",
     github: 'https://github.com/bhoidhirendra07/Weather-App',
     live: '#',
   },
@@ -73,7 +73,7 @@ function placeholder(title) {
   return PLACEHOLDER_COLOURS[title.charAt(0)] ?? '#7C22D4';
 }
 
-/* ── Unified project card (same look for JS & Full-Stack) ── */
+/* Unified project card (same look for JS & Full-Stack) */
 const GH_ICON = (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
@@ -152,25 +152,27 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* JavaScript Projects */}
-        <div className="mb-14">
-          <h3 className="text-sm font-bold text-[#1A1A2E] mb-5 flex items-center gap-2 uppercase tracking-wider">
-            <span className="w-5 h-5 rounded bg-[#7C22D4] text-white text-[10px] font-black flex items-center justify-center">JS</span>
-            JavaScript Projects
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {JS_PROJECTS.map((p, i) => <ProjectCard key={p.title} {...p} index={i} />)}
-          </div>
-        </div>
 
         {/* Full Stack & Other Projects */}
-        <div>
+        <div className="mb-14">
           <h3 className="text-sm font-bold text-[#1A1A2E] mb-5 flex items-center gap-2 uppercase tracking-wider">
             <span className="w-5 h-5 rounded bg-[#2563EB] text-white text-[10px] font-black flex items-center justify-center">FS</span>
             Full Stack &amp; Other Projects
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {OTHER_PROJECTS.map((p, i) => <ProjectCard key={p.title} {...p} index={i} />)}
+          </div>
+        </div>
+
+
+        {/* JavaScript Projects */}
+        <div>
+          <h3 className="text-sm font-bold text-[#1A1A2E] mb-5 flex items-center gap-2 uppercase tracking-wider">
+            <span className="w-5 h-5 rounded bg-[#7C22D4] text-white text-[10px] font-black flex items-center justify-center">JS</span>
+            JavaScript Projects
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {JS_PROJECTS.map((p, i) => <ProjectCard key={p.title} {...p} index={i} />)}
           </div>
         </div>
       </div>

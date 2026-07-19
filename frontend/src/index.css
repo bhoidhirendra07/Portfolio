@@ -1,18 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-/*
-  PALETTE (inspired by jatinmaurya.me)
-  ─ bg:      #EBEBEB  (warm light grey)
-  ─ surface: #F5F5F5  (slightly lighter cards)
-  ─ white:   #FFFFFF  (pure white cards / inputs)
-  ─ dark:    #1A1A2E  (deep navy, replaces harsh black)
-  ─ body:    #4A4A5A  (mid slate for paragraphs)
-  ─ violet:  #7C22D4  (primary accent - from jatinmaurya hover)
-  ─ blue:    #2563EB  (CTA buttons - from jatinmaurya Download CV)
-  ─ border:  #D9D9D9
-*/
-
 @theme {
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -31,7 +19,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 * { scrollbar-width: none; -ms-overflow-style: none; }
 *::-webkit-scrollbar { display: none; }
 
-/* ── Gradient text ── */
+/* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #7C22D4, #2563EB);
   -webkit-background-clip: text;
@@ -39,7 +27,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   background-clip: text;
 }
 
-/* ── Section divider ── */
+/* Section divider */
 .section-divider {
   width: 40px;
   height: 3px;
@@ -48,7 +36,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   border-radius: 2px;
 }
 
-/* ── Keyframes ── */
+/* Keyframes */
 @keyframes bounce-y {
   0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
   40%                      { transform: translateX(-50%) translateY(-8px); }
@@ -65,7 +53,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Scroll reveal ── */
+/* Scroll reveal */
 .fade-in-section {
   opacity: 0;
   transform: translateY(1.5rem);
@@ -97,12 +85,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 }
 .scale-in-section.visible { opacity: 1; transform: translateY(0); }
 
-/* ── Animations ── */
+/* Animations */
 .animate-bounce-y { animation: bounce-y 2s infinite; }
 .animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
 .typing-cursor { animation: typewriterCursor 0.9s step-end infinite; }
 
-/* ── Card hover  — NO 3D, NO perspective, NO blur ── */
+
 .card-hover {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -111,7 +99,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
 }
 
-/* ── Button primary ── */
+/* Button primary */
 .btn-primary {
   background: #2563EB;
   color: #fff;
@@ -123,7 +111,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
 }
 
-/* ── Button outline ── */
+/* Button outline */
 .btn-outline {
   border: 1.5px solid #D9D9D9;
   color: #1A1A2E;
@@ -137,7 +125,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   transform: translateY(-1px);
 }
 
-/* ── Social icon button ── */
+/* Social icon button */
 .social-btn {
   border: 1.5px solid #D9D9D9;
   background: #F5F5F5;
@@ -151,7 +139,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   transform: translateY(-2px);
 }
 
-/* ── Skill chip hover ── */
+/* Skill chip hover */
 .skill-chip {
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
@@ -161,14 +149,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
   transform: translateY(-2px);
 }
 
-/* ── Tag pill ── */
+/* Tag pill */
 .tag-pill {
   background: #E8E0FF;
   color: #6B21A8;
   border: 1px solid #DDD6FE;
 }
 
-/* ── Stagger delays ── */
+/* Stagger delays */
 .stagger > *:nth-child(1) { transition-delay: 0ms; }
 .stagger > *:nth-child(2) { transition-delay: 60ms; }
 .stagger > *:nth-child(3) { transition-delay: 120ms; }
@@ -177,7 +165,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 .stagger > *:nth-child(6) { transition-delay: 300ms; }
 .stagger > *:nth-child(7) { transition-delay: 360ms; }
 
-/* ── Underline link ── */
+/* Underline link */
 .link-underline {
   position: relative;
   color: #6B6B80;
