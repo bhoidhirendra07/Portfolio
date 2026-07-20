@@ -7,7 +7,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function App() {
+function App() {
   return (
     <div className="min-h-screen antialiased">
       <Navbar />
@@ -23,3 +23,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
