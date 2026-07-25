@@ -52,7 +52,7 @@ const OTHER_PROJECTS = [
     overview: 'This portfolio — built with React, Vite, and Tailwind CSS on the frontend and Node.js + Express on the backend. Features scroll-driven animations, a contact form integrated with EmailJS, and a responsive design across all screen sizes.',
     image: "../public/portfolio.png",
     github: 'https://github.com/bhoidhirendra07/Portfolio',
-    live: '#',
+    live: 'https://dhirendrabhoiportfolio.vercel.app/',
   },
   {
     title: 'Cloudy Weather App',
