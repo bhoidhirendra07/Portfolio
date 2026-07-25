@@ -13,14 +13,14 @@ const JS_PROJECTS = [
     overview: 'A fully functional browser calculator supporting all basic arithmetic operations, keyboard shortcuts, and live expression evaluation. Designed with a dark UI and smooth key-press animations.',
     image: "../public/CalcMaster.png",
     github: 'https://github.com/bhoidhirendra07/CalcMaster',
-    live: '#',
+    live: 'https://calcmaster1.netlify.app/',
   },
   {
     title: 'Typing Speed Checker',
     overview: 'Real-time typing speed test that measures Words Per Minute (WPM) and accuracy. Highlights each character as you type — green for correct, red for errors — with a countdown timer and result summary.',
     image: "../public/Typing-speed.png",
     github: 'https://github.com/bhoidhirendra07/Typing-Speed-Checker',
-    live: '#',
+    live: 'https://typingperformance.netlify.app/',
   },
  
   {
@@ -59,7 +59,7 @@ const OTHER_PROJECTS = [
     overview: 'A premium weather dashboard powered by the OpenWeatherMap API. Shows current conditions, a 5-day forecast, hourly temperature chart, humidity/wind/UV metrics, and an animated arc-based sunrise/sunset visualisation.',
     image: "../public/cloudy.png",
     github: 'https://github.com/bhoidhirendra07/Weather-App',
-    live: '#',
+    live: 'https://cloudyweatherapp.netlify.app/',
   },
 ];
 
