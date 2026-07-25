@@ -6,7 +6,7 @@ const JS_PROJECTS = [
     overview: 'A browser-based video player inspired by VLC. Supports local file playback, custom play/pause controls, a draggable seek bar, volume control, and fullscreen mode — all built with vanilla JS.',
     image: "../public/VLC.png",
     github: 'https://github.com/bhoidhirendra07/VLC-clone',
-    live: '#',
+    live: 'https://vlc-player.netlify.app/',
   },
   {
     title: 'CalcMaster',
@@ -28,7 +28,7 @@ const JS_PROJECTS = [
     overview: 'An interactive lottery game where players pick numbers and see an animated random draw. Tracks winning rounds, shows instant win/loss feedback, and keeps a session score on the side.',
     image: "../public/lottery.png",
     github: 'https://github.com/bhoidhirendra07/Lottery-Game',
-    live: '#',
+    live: 'https://lotteryygame.netlify.app/',
   },
 ];
 
