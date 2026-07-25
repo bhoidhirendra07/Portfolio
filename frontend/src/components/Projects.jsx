@@ -114,7 +114,10 @@ function ProjectCard({ title, overview, image, github, live, index }) {
         <h3 className="font-bold text-[#1A1A2E] text-sm mb-1.5 leading-snug">{title}</h3>
         <p className="text-xs text-[#6B6B80] leading-relaxed flex-1 mb-3">{overview}</p>
         <div className="flex gap-4 pt-3 border-t border-[#F0F0F0]">
-          <a href={live} className="link-underline flex items-center gap-1 text-xs font-semibold">
+          <a href={live}
+          target='_blank'
+          rel='noopener noreferrer'
+          className="link-underline flex items-center gap-1 text-xs font-semibold">
             {EXT_ICON} Live
           </a>
           <a href={github} target="_blank" rel="noopener noreferrer"
