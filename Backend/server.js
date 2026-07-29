@@ -36,10 +36,7 @@ const connectDB = async () => {
   }
 };
 
-// connectDB().then(() => {
-//   app.listen(PORT, () => {
-//     console.log(`🚀 Server running at http://localhost:${PORT}`);
-//   });
-// });
+// Vercel serverless: connect DB on cold start, export app (no listen needed)
+connectDB();
 
 export default app;

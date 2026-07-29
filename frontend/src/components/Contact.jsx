@@ -61,7 +61,7 @@ export default function Contact() {
     setLoading(true);
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, { publicKey: EMAILJS_PUBLIC_KEY });
-      API.post('/contact', { name: form.from_name, email: form.from_email, message: form.message }).catch(() => {});
+      API.post('/api/contact', { name: form.from_name, email: form.from_email, message: form.message }).catch(() => {});
       toast.success("Message sent! I'll get back to you soon.");
       setForm({ from_name: '', from_email: '', message: '' });
       setErrors({});
