@@ -1,24 +1,32 @@
 import { useEffect, useRef } from 'react';
+import imgVLC from '../assets/VLC.png';
+import imgCalc from '../assets/calcmaster.png';
+import imgTyping from '../assets/Typing-speed.png';
+import imgLottery from '../assets/lottery.png';
+import imgKidStyle from '../assets/kidstyle.png';
+import imgEnhancer from '../assets/QuickEnhancer.png';
+import imgPortfolio from '../assets/portfolio.png';
+import imgCloudy from '../assets/cloudy.png';
 
 const JS_PROJECTS = [
    {
     title: 'VLC Clone',
     overview: 'A browser-based video player inspired by VLC. Supports local file playback, custom play/pause controls, a draggable seek bar, volume control, and fullscreen mode — all built with vanilla JS.',
-    image: "/VLC.png",
+    image: imgVLC,
     github: 'https://github.com/bhoidhirendra07/VLC-clone',
     live: 'https://vlc-player.netlify.app/',
   },
   {
     title: 'CalcMaster',
     overview: 'A fully functional browser calculator supporting all basic arithmetic operations, keyboard shortcuts, and live expression evaluation. Designed with a dark UI and smooth key-press animations.',
-    image: "/calcmaster.png",
+    image: imgCalc,
     github: 'https://github.com/bhoidhirendra07/CalcMaster',
     live: 'https://calcmaster1.netlify.app/',
   },
   {
     title: 'Typing Speed Checker',
     overview: 'Real-time typing speed test that measures Words Per Minute (WPM) and accuracy. Highlights each character as you type — green for correct, red for errors — with a countdown timer and result summary.',
-    image: "/Typing-speed.png",
+    image: imgTyping,
     github: 'https://github.com/bhoidhirendra07/Typing-Speed-Checker',
     live: 'https://typingperformance.netlify.app/',
   },
@@ -26,7 +34,7 @@ const JS_PROJECTS = [
   {
     title: 'Lottery Game',
     overview: 'An interactive lottery game where players pick numbers and see an animated random draw. Tracks winning rounds, shows instant win/loss feedback, and keeps a session score on the side.',
-    image: "/lottery.png",
+    image: imgLottery,
     github: 'https://github.com/bhoidhirendra07/Lottery-Game',
     live: 'https://lotteryygame.netlify.app/',
   },
@@ -36,28 +44,28 @@ const OTHER_PROJECTS = [
   {
     title: 'KidStyle E-Commerce',
     overview: "A full-stack premium children's fashion store built with the MERN stack. Features JWT-based authentication, product catalog with filters, add-to-cart and wishlist functionality, order tracking, and an admin panel for product management.",
-    image: "/kidstyle.png",
+    image: imgKidStyle,
     github: 'https://github.com/bhoidhirendra07/Kids-online-store',
     live: '#',
   },
   {
     title: 'Quality Enhancer',
     overview: 'A web tool that allows users to upload an image and receive an upscaled, enhanced version. Supports multiple enhancement modes (sharpen, denoise, upscale) with a before/after comparison slider.',
-    image: "/QuickEnhancer.png",
+    image: imgEnhancer,
     github: 'https://github.com/bhoidhirendra07/quality_enhancer',
     live: '#',
   },
   {
     title: 'Portfolio Website',
     overview: 'This portfolio — built with React, Vite, and Tailwind CSS on the frontend and Node.js + Express on the backend. Features scroll-driven animations, a contact form integrated with EmailJS, and a responsive design across all screen sizes.',
-    image: "/portfolio.png",
+    image: imgPortfolio,
     github: 'https://github.com/bhoidhirendra07/Portfolio',
     live: 'https://dhirendrabhoiportfolio.vercel.app/',
   },
   {
     title: 'Cloudy Weather App',
     overview: 'A premium weather dashboard powered by the OpenWeatherMap API. Shows current conditions, a 5-day forecast, hourly temperature chart, humidity/wind/UV metrics, and an animated arc-based sunrise/sunset visualisation.',
-    image: "/cloudy.png",
+    image: imgCloudy,
     github: 'https://github.com/bhoidhirendra07/Weather-App',
     live: 'https://cloudyweatherapp.netlify.app/',
   },
