@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import API from '../api.js';
 
 const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -60,7 +61,7 @@ export default function Contact() {
     setLoading(true);
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, { publicKey: EMAILJS_PUBLIC_KEY });
-      axios.post('/api/contact', { name: form.from_name, email: form.from_email, message: form.message }).catch(() => {});
+      API.post('/contact', { name: form.from_name, email: form.from_email, message: form.message }).catch(() => {});
       toast.success("Message sent! I'll get back to you soon.");
       setForm({ from_name: '', from_email: '', message: '' });
       setErrors({});
