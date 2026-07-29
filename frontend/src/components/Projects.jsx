@@ -11,7 +11,7 @@ const JS_PROJECTS = [
   {
     title: 'CalcMaster',
     overview: 'A fully functional browser calculator supporting all basic arithmetic operations, keyboard shortcuts, and live expression evaluation. Designed with a dark UI and smooth key-press animations.',
-    image: "/CalcMaster.png",
+    image: "/calcmaster.png",
     github: 'https://github.com/bhoidhirendra07/CalcMaster',
     live: 'https://calcmaster1.netlify.app/',
   },
