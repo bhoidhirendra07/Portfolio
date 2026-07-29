@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 const TYPING_TEXTS = ['MERN Stack Developer', 'Full-Stack Developer', 'Creative Problem Solver'];
 

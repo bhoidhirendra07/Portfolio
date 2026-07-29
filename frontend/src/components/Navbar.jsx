@@ -39,7 +39,6 @@ export default function Navbar() {
               style={{ fontFamily: "'Montserrat', sans-serif"}}>
               D
             </span>
-            <span className="text-[#7C22D4] font-black text-[18px] leading-none"></span>
             <span
               className="font-black text-[20px] leading-none tracking-tight text-[#7C22D4]
                 group-hover:text-[#7C22D4] transition-colors duration-200"
@@ -52,7 +51,7 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map(({ id, label }) => (
-            <button key={id} onClick={() => scrollToSection(id)} cursor-pointer
+            <button key={id} onClick={() => scrollToSection(id)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 cursor-pointer
                 ${activeSection === id
                   ? 'text-[#7C22D4] bg-[#7C22D4]/8'

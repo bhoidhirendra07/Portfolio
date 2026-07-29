@@ -30,7 +30,6 @@ const JS_PROJECTS = [
     github: 'https://github.com/bhoidhirendra07/Typing-Speed-Checker',
     live: 'https://typingperformance.netlify.app/',
   },
- 
   {
     title: 'Lottery Game',
     overview: 'An interactive lottery game where players pick numbers and see an animated random draw. Tracks winning rounds, shows instant win/loss feedback, and keeps a session score on the side.',
@@ -71,16 +70,6 @@ const OTHER_PROJECTS = [
   },
 ];
 
-/* Placeholder colour per initial letter */
-const PLACEHOLDER_COLOURS = {
-  C: '#7C22D4', T: '#2563EB', V: '#059669', L: '#D97706',
-  K: '#7C22D4', Q: '#2563EB', P: '#7C22D4',
-};
-
-function placeholder(title) {
-  return PLACEHOLDER_COLOURS[title.charAt(0)] ?? '#7C22D4';
-}
-
 /* Unified project card (same look for JS & Full-Stack) */
 const GH_ICON = (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -95,7 +84,6 @@ const EXT_ICON = (
 );
 
 function ProjectCard({ title, overview, image, github, live, index }) {
-  const color = placeholder(title);
   return (
     <div
       className="bg-white rounded-2xl border border-[#D9D9D9] overflow-hidden fade-in-section card-hover flex flex-col"
@@ -103,18 +91,8 @@ function ProjectCard({ title, overview, image, github, live, index }) {
     >
       {/* Image / placeholder */}
       <div className="relative h-36 overflow-hidden bg-[#F3F3F3] shrink-0">
-        {image
-          ? <img src={image} alt={title} className="w-full h-full object-cover" />
-          : (
-            <div className="w-full h-full flex items-center justify-center"
-              style={{ background: `linear-gradient(135deg, ${color}18, ${color}06)` }}>
-              <span className="text-5xl font-black select-none" style={{ color: `${color}28` }}>
-                {title.charAt(0)}
-              </span>
-            </div>
-          )
-        }
-        <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: color }} />
+        {image && <img src={image} alt={title} className="w-full h-full object-cover" />}
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#7C22D4]" />
       </div>
 
       {/* Body */}

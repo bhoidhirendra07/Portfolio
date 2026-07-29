@@ -92,7 +92,7 @@ export default function Education() {
                   </div>
 
                   <p className="text-sm text-[#6B6B80] mb-1">{degree}</p>
-                  <p className="text-sm font-semibold text-[#7C22D4]">{grade}</p>
+                  {grade && <p className="text-sm font-semibold text-[#7C22D4]">{grade}</p>}
                 </div>
               </div>
             ))}
