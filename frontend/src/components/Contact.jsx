@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 import API from '../api.js';
 
