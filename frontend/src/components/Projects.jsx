@@ -41,20 +41,6 @@ const JS_PROJECTS = [
 
 const OTHER_PROJECTS = [
   {
-    title: 'KidStyle E-Commerce',
-    overview: "A full-stack premium children's fashion store built with the MERN stack. Features JWT-based authentication, product catalog with filters, add-to-cart and wishlist functionality, order tracking, and an admin panel for product management.",
-    image: imgKidStyle,
-    github: 'https://github.com/bhoidhirendra07/Kids-online-store',
-    live: '#',
-  },
-  {
-    title: 'Quality Enhancer',
-    overview: 'A web tool that allows users to upload an image and receive an upscaled, enhanced version. Supports multiple enhancement modes (sharpen, denoise, upscale) with a before/after comparison slider.',
-    image: imgEnhancer,
-    github: 'https://github.com/bhoidhirendra07/quality_enhancer',
-    live: '#',
-  },
-  {
     title: 'Portfolio Website',
     overview: 'This portfolio — built with React, Vite, and Tailwind CSS on the frontend and Node.js + Express on the backend. Features scroll-driven animations, a contact form integrated with EmailJS, and a responsive design across all screen sizes.',
     image: imgPortfolio,
@@ -68,6 +54,20 @@ const OTHER_PROJECTS = [
     github: 'https://github.com/bhoidhirendra07/Weather-App',
     live: 'https://cloudyweatherapp.netlify.app/',
   },
+  {
+    title: 'KidStyle E-Commerce',
+    overview: "A full-stack premium children's fashion store built with the MERN stack. Features JWT-based authentication, product catalog with filters, add-to-cart and wishlist functionality, order tracking, and an admin panel for product management.",
+    image: imgKidStyle,
+    github: 'https://github.com/bhoidhirendra07/Kids-online-store',
+    live: '#',
+  },
+  {
+    title: 'Quality Enhancer',
+    overview: 'A web tool that allows users to upload an image and receive an upscaled, enhanced version. Supports multiple enhancement modes (sharpen, denoise, upscale) with a before/after comparison slider.',
+    image: imgEnhancer,
+    github: 'https://github.com/bhoidhirendra07/quality_enhancer',
+    live: '#',
+  }
 ];
 
 /* Unified project card (same look for JS & Full-Stack) */
